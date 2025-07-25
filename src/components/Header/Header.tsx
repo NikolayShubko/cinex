@@ -3,7 +3,7 @@ import Icon from "../Icon/Icon";
 import s from "./Header.module.scss";
 const Header = () => {
   return (
-    <header className={s.header}>
+    <header className={s.header + " " + "container"}>
       <div className={s.logo}>
         <svg
           width="116"
