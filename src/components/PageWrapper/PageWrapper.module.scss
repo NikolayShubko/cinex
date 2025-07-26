@@ -4,29 +4,3 @@
 //   flex-direction: column;
 //   justify-content: space-between;
 // }
-.film {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-  max-width: 424px;
-  font-size: 20px;
-  font-weight: 600;
-  font-family: variables.$albert-font;
-  transition: all 0.3s ease-in-out 0.3s;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-
-  &_info {
-    display: flex;
-    max-width: 243px;
-    justify-content: space-between;
-    gap: 24px;
-  }
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
