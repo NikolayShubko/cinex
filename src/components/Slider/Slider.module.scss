@@ -17,4 +17,13 @@
   width: 312px !important;
   height: 177px;
   border-radius: 7px;
+  &_image {
+    width: 312px;
+    height: 177px;
+    border-radius: 7px;
+  }
+}
+
+.active {
+  border: 2px solid tomato;
 }

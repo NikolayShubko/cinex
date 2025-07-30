@@ -1,0 +1,46 @@
+export interface RouteType {
+  name: string;
+  route: string;
+}
+
+export const mainRoutes: RouteType[] = [
+  {
+    name: "Home",
+    route: "/",
+  },
+  {
+    name: "Movies",
+    route: "/movies",
+  },
+  {
+    name: "TV Shows",
+    route: "/tv-shows",
+  },
+  {
+    name: "My List",
+    route: "/my-list",
+  },
+];
+
+export const categoryRoutes: RouteType[] = [
+  {
+    name: "New",
+    route: "new",
+  },
+  {
+    name: "Most Popular",
+    route: "most-popular",
+  },
+  {
+    name: "Keep Watching",
+    route: "keep-watching",
+  },
+  {
+    name: "Recommended For You",
+    route: "recommended-for-you",
+  },
+  {
+    name: "Trending Now",
+    route: "trending-now",
+  },
+];

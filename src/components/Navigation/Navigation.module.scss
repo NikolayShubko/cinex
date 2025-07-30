@@ -1,0 +1,40 @@
+@use "@styles/variables.scss";
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  font-family: variables.$vela-font;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.navlink {
+  position: relative;
+  padding-bottom: 4px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    border-bottom: 1px solid white;
+    transition: width ease-in-out 0.3s;
+    transform: translateX(-50%);
+  }
+  &_active {
+    position: relative;
+
+    &::after {
+      content: "";
+      transition: width ease-in-out 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 50%;
+      border-bottom: 2px solid white;
+      transform: translateX(-50%);
+    }
+  }
+}
