@@ -7,7 +7,9 @@ const Layout = () => {
       <Header />
       <BackgroundImage />
       <main>
-        <Outlet />
+        <div className="container flex-column full-width full-height">
+          <Outlet />
+        </div>
       </main>
     </>
   );

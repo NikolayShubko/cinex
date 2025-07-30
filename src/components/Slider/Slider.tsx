@@ -2,17 +2,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 
 import { FreeMode, Pagination } from "swiper/modules";
-import mockdata, { Film } from "./mockdata";
+import { Film } from "./mockdata";
 
 import s from "./Slider.module.scss";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { useAppDispatch } from "../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setFilm } from "../../store/selectedFilm/slice";
-import { useRef } from "react";
+import React, { FC, useRef } from "react";
 
-const Slider = () => {
+interface SliderProps {
+  filmData: Film[] | null;
+  isLoading: boolean;
+}
+
+const Slider: FC<SliderProps> = React.memo(({ filmData, isLoading }) => {
   const swiperParams: SwiperOptions = {
     slidesPerView: "auto",
     spaceBetween: 11,
@@ -20,39 +25,48 @@ const Slider = () => {
     freeMode: true,
     direction: "horizontal",
   };
-
-  function useDebouncedHover(delay = 300) {
-    const timeout = useRef<NodeJS.Timeout | null>(null);
+  const selectedFilmId = useAppSelector(
+    (state) => state.selectedFilmReducer.currentFilm?.id
+  );
+  const useDebouncedHover = (delay = 300) => {
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const dispatch = useAppDispatch();
 
     return (film: Film) => {
-      if (timeout.current) clearTimeout(timeout.current);
-      timeout.current = setTimeout(() => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      timeoutRef.current = setTimeout(() => {
         dispatch(setFilm(film));
       }, delay);
     };
-  }
+  };
   const handleMouseOver = useDebouncedHover();
   return (
     <div className={`${s.sliderholder}`}>
       <Swiper {...swiperParams} className={s.slider}>
-        {mockdata.map((film) => {
+        {filmData?.map((film) => {
           return (
             <SwiperSlide
               className={s.swiperSlide}
-              style={{ backgroundColor: film.colorSmall }}
               id={`${film.id}`}
               onMouseOver={() => {
                 handleMouseOver(film);
               }}
             >
-              {film.colorSmall}
+              <img
+                className={`${s.swiperSlide_image} ${
+                  film.id === selectedFilmId ? s.active : ""
+                }`}
+                src={film.filmImageUrl}
+                alt={film.title}
+              />
             </SwiperSlide>
           );
         })}
       </Swiper>
     </div>
   );
-};
+});
 
 export default Slider;

@@ -1,12 +1,10 @@
+import { FC } from "react";
 import PageWrapper from "../components/PageWrapper/PageWrapper";
-import Slider from "../components/Slider/Slider";
+type endpoint = { endpoint: string };
 
-const Movies = () => {
-  return (
-    <div className="container flex-column full-width full-height">
-      <PageWrapper />
-    </div>
-  );
+const Movies: FC<endpoint> = ({ endpoint }) => {
+  console.log(endpoint);
+  return <PageWrapper basePath="/movies" endpoint={endpoint} />;
 };
 
 export default Movies;
