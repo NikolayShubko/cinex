@@ -11,10 +11,26 @@
 
   &_info {
     display: flex;
-    max-width: 243px;
+    // max-width: 243px;
     justify-content: space-between;
     font-size: 20px;
     font-family: variables.$albert-font;
+    font-weight: 600;
     gap: 24px;
+    color: #d3d3d3;
+    align-items: center;
+    &_rating {
+      border: 2px solid #ffd700;
+      border-radius: 4px;
+      padding: 2px 6px;
+      color: #fff;
+      min-width: 30px;
+      text-align: center;
+    }
+  }
+  &_descr {
+    font-size: 16px;
+    font-family: variables.$vela-font;
+    font-weight: 600;
   }
 }
