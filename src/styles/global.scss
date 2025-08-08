@@ -22,7 +22,7 @@ body {
     filter: blur(250px);
     background: linear-gradient(
       to top,
-      #d32f2f 0%,
+      variables.$accent-color 0%,
       variables.$primary-bg-color 100%
     );
     pointer-events: none;

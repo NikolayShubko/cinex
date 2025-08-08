@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Layout from "../pages/Layout/Layout";
 import Movies from "../pages/Movies";
 import Home from "../pages/Home/Home";
+import ContentPage from "../pages/ContentPage";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,7 @@ export const router = createBrowserRouter([
         path: "/movies",
         element: <Movies endpoint="/api/v1/films/onlyFilms" />,
       },
+
       {
         path: "/movies/new",
         element: <Movies endpoint="/api/v1/films/onlyFilms/latest" />,
@@ -98,7 +100,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/movies/keep-watching",
-        element: <Movies endpoint="/api/v1/films" />,
+        element: <Movies endpoint="/api/v1/films/" />,
       },
       {
         path: "/movies/recommended-for-you",
@@ -106,7 +108,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/movies/trending-now",
-        element: <Movies endpoint="/api/v1/films" />,
+        element: <Movies endpoint="/api/v1/films/" />,
+      },
+      {
+        path: "/movies/:movieId",
+        element: <ContentPage />,
       },
     ],
   },
