@@ -3,10 +3,10 @@ export interface Film {
   title: string;
   releaseYear: number;
   description: string;
-  authors: string; // still a comma-separated string
-  cast: string; // still a comma-separated string
+  authors: string;
+  cast: string;
   ageRating: string;
-  genres: string; // comma-separated string
+  genres: string;
   durationMinutes: number;
   rating: number;
   language: string;

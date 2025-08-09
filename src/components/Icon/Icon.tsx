@@ -1,8 +1,8 @@
-interface IIConProps {
+interface IConProps {
   iconName: string;
 }
 
-const Icon: React.FC<IIConProps> = ({ iconName }) => {
+const Icon: React.FC<IConProps> = ({ iconName }) => {
   return (
     <svg width={24} height={24}>
       <use href={`/sprite.svg#${iconName}`} />

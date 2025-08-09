@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { NavLink, useLocation } from "react-router";
 import s from "./Navigation.module.scss";
-import { categoryRoutes, RouteType } from "../../router/ROUTES.tsx";
+import { RouteType } from "../types/routetype.tsx";
 
 interface NavigationProps {
   links: RouteType[];

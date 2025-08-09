@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Film } from "../../components/Slider/mockdata";
+
 import { setFilm } from "../selectedFilm/slice";
+import { Film } from "../../components/types/films";
 export const filmsApi = createApi({
   reducerPath: "filmsApi",
   baseQuery: fetchBaseQuery({

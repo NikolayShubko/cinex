@@ -1,7 +1,4 @@
-export interface RouteType {
-  name: string;
-  route: string;
-}
+import { RouteType } from "../components/types/routetype";
 
 export const mainRoutes: RouteType[] = [
   {
