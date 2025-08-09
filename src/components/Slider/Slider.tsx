@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Film } from "./mockdata";
-import s from "./Slider.module.scss";
+
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setFilm } from "../../store/selectedFilm/slice";
 import React, { FC, useEffect, useRef } from "react";
@@ -14,6 +13,8 @@ import "swiper/css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import "swiper/css/free-mode";
+import s from "./Slider.module.scss";
+import { Film } from "../types/films";
 interface SliderProps {
   filmData: Film[] | null;
   isLoading: boolean;
