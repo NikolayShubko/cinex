@@ -11,7 +11,7 @@ export const mainRoutes: RouteType[] = [
   },
   {
     name: "TV Shows",
-    route: "/tv-shows",
+    route: "/series",
   },
   {
     name: "My List",

@@ -1,0 +1,30 @@
+@use "@/styles/variables.scss";
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 2px solid variables.$accent-color;
+  text-align: center;
+  background-color: variables.$accent-color;
+  color: white;
+  border-radius: 7px;
+  text-transform: capitalize;
+  max-height: 48px;
+  transition: all ease-in-out 0.3s;
+  &_large {
+    max-width: 150px;
+    padding: 13px 59px;
+  }
+  &_small {
+    width: 48px;
+    //  height: 48px;
+    padding: 12px;
+  }
+  &_list {
+    background: none;
+  }
+  &:hover {
+    box-shadow: 0 0 25px 0 variables.$accent-color;
+  }
+}

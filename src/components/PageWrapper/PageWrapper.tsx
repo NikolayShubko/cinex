@@ -4,8 +4,7 @@ import Slider from "../Slider/Slider";
 import FilmInfo from "../FilmInfo/FilmInfo";
 import Navigation from "../Navigation/Navigation";
 import { categoryRoutes } from "../../router/ROUTES";
-
-import { useGetContentQuery } from "../../store/api/api";
+import { useGetContentQuery } from "../../store/api/getContentAPi/getContentApiSlice";
 
 interface PageWrapperProps {
   basePath: string;
@@ -23,12 +22,10 @@ const PageWrapper: FC<PageWrapperProps> = React.memo(
           basePath={basePath}
         />
         <FilmInfo isLoading={isLoading} />
-        {
-          <Slider
-            filmData={films === undefined ? [] : films}
-            isLoading={isLoading}
-          />
-        }
+        <Slider
+          filmData={films === undefined ? [] : films}
+          isLoading={isLoading}
+        />
       </>
     );
   }

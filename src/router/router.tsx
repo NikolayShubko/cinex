@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import Layout from "../pages/Layout/Layout";
 import Home from "../pages/Home/Home";
-import ContentPage from "../pages/ContentPage";
+import ContentPage from "../pages/ContentPage/ContentPage";
 import MoviesAndSeriesPage from "../pages/MoviesAndSeries/MoviesAndSeries";
 import LoginLayout from "../pages/Layout/LoginLayout";
 import Login from "../pages/Login/Login";
@@ -118,6 +118,43 @@ export const router = createBrowserRouter([
       },
       {
         path: "/movies/:movieId",
+        element: <ContentPage />,
+      },
+      {
+        path: "/series",
+        element: <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries" />,
+      },
+
+      {
+        path: "/series/new",
+        element: (
+          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/latest" />
+        ),
+      },
+      {
+        path: "/series/most-popular",
+        element: (
+          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/highestRated" />
+        ),
+      },
+      {
+        path: "/series/keep-watching",
+        element: <MoviesAndSeriesPage endpoint="/api/v1/films/" />,
+      },
+      {
+        path: "/series/recommended-for-you",
+        element: (
+          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/mainGenres" />
+        ),
+      },
+      {
+        path: "/series/trending-now",
+        element: (
+          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/highestRated" />
+        ),
+      },
+      {
+        path: "/series/:movieId",
         element: <ContentPage />,
       },
     ],

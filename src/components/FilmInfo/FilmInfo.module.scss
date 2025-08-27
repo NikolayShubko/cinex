@@ -4,14 +4,14 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
-  max-width: 424px;
+  max-width: 32%;
   font-size: 16px;
   font-weight: 600;
   font-family: variables.$vela-font;
 
   &_info {
     display: flex;
-    // max-width: 243px;
+    max-width: 50%;
     justify-content: space-between;
     font-size: 20px;
     font-family: variables.$albert-font;
