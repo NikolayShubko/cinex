@@ -16,7 +16,7 @@ const LoginScrollBig: FC<Props> = ({ images, variant }) => {
     slidesPerView: "auto",
     spaceBetween: "24",
     loop: true,
-    speed: variant === "small" ? 1250 : 1500,
+    speed: variant === "small" ? 1125 : 1400,
     allowTouchMove: false,
     modules: [Autoplay],
 

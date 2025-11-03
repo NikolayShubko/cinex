@@ -13,7 +13,7 @@ interface PageWrapperProps {
 
 const PageWrapper: FC<PageWrapperProps> = React.memo(
   ({ basePath, endpoint }) => {
-    const { data: films, isLoading } = useGetContentQuery(endpoint);
+    const { data: films, isLoading, isFetching } = useGetContentQuery(endpoint);
     return (
       <>
         <Navigation
@@ -24,7 +24,7 @@ const PageWrapper: FC<PageWrapperProps> = React.memo(
         <FilmInfo isLoading={isLoading} />
         <Slider
           filmData={films === undefined ? [] : films}
-          isLoading={isLoading}
+          isLoading={isFetching}
         />
       </>
     );

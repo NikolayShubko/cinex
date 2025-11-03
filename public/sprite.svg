@@ -18,4 +18,14 @@
     <path d="M11.9993 2.5L8.9428 8.7388L2 9.74555L7.02945 14.6625L5.8272 21.5L11.9993 18.2096L18.1727 21.5L16.9793 14.6625L22 9.74555L15.0956 8.7388L11.9993 2.5Z" stroke="#F4F4F4" stroke-width="2" stroke-linejoin="round"></path>
   </symbol>
 
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="checkbox-checked">
+    <rect x="0.5" y="0.5" width="23" height="23" rx="6.5" stroke="#F4F4F4"></rect>
+    <path d="M16.75 8.75L10.2188 15.25L7.25 12.2955" stroke="#D63D00" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="checkbox">
+    <rect x="0.5" y="0.5" width="23" height="23" rx="6.5" stroke="#F4F4F4" stroke-width="1" ></rect>
+
+  </symbol>
+
+
 </svg>

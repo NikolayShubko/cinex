@@ -1,0 +1,18 @@
+@use "@styles/variables.scss";
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: variables.$vela-font;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 500;
+}
+
+.resetpass {
+  text-decoration: underline;
+  transition: all ease-in-out 0.3s;
+  &:hover {
+    color: variables.$accent-color;
+  }
+}
