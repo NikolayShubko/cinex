@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { ButtonProps } from "../types/button";
+import { ButtonProps } from "../../types/button";
 import clsx from "clsx";
 import s from "./Button.module.scss";
 const Button = ({
@@ -27,7 +27,16 @@ const Button = ({
     className
   );
   return (
-    <Component to={isLink ? path : "/"} className={buttonClassName}>
+    <Component
+      to={isLink ? path : "/"}
+      className={buttonClassName}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+      rel={rel}
+      aria-label={ariaLabel}
+      target={target}
+    >
       {children}
     </Component>
   );

@@ -2,23 +2,37 @@ import { useParams } from "react-router";
 
 import FilmInfo from "../../components/FilmInfo/FilmInfo";
 import {
+  useGetByGenreQuery,
   useGetContentByIdQuery,
-  useGetContentQuery,
 } from "../../store/api/getContentAPi/getContentApiSlice";
 import Button from "../../components/Button/Button";
 import ButtonBlock from "../../components/ButtonBlock/ButtonBlock";
 import Icon from "../../components/Icon/Icon";
 import Slider from "../../components/Slider/Slider";
+import { useMemo, useState } from "react";
 
 const ContentPage = () => {
   const { movieId } = useParams<{ movieId: string }>();
   const { data, isLoading } = useGetContentByIdQuery(movieId ?? "", {
     skip: !movieId,
+    refetchOnMountOrArgChange: true,
   });
+  const [value, setValue] = useState({
+    username: "",
+    password: "",
+  });
+
   const genre = data?.genres.split(",");
-  const { data: filmData, isLoading: sliderLoading } = useGetContentQuery(
-    "/api/v1/films/search/genres/" + genre?.[0]
-  );
+  const {
+    data: genreFiltered,
+    isLoading: genreLoading,
+    isFetching,
+  } = useGetByGenreQuery(genre ? genre[0] : "", {
+    skip: !genre,
+    refetchOnMountOrArgChange: true,
+  });
+  if (!genreLoading) console.log(genreFiltered);
+  console.log(isFetching, " is Fetching");
   return (
     <>
       <FilmInfo isLoading={isLoading} content={data}>
@@ -35,7 +49,11 @@ const ContentPage = () => {
           </Button>
         </ButtonBlock>
       </FilmInfo>
-      {filmData && <Slider filmData={filmData} isLoading={sliderLoading} />}
+      <Slider
+        filmData={genreFiltered ? genreFiltered : []}
+        isLoading={isFetching}
+        variant="content-page"
+      />
     </>
   );
 };

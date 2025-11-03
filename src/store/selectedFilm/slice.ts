@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Film } from "../../components/Slider/mockdata";
+import { Film } from "../../types/films";
 
 interface FilmState {
   currentFilm: Film | null;

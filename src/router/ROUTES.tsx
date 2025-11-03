@@ -1,4 +1,4 @@
-import { RouteType } from "../components/types/routetype";
+import { RouteType } from "../types/routetype";
 
 export const mainRoutes: RouteType[] = [
   {

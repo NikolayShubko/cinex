@@ -1,11 +1,13 @@
 export interface ButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit";
-  size?: "large" | "medium" | "small";
+  size?: "wide" | "large" | "medium" | "small" | "wideWhite";
   variant?: "list";
   disabled?: boolean;
   className?: string;
-  onClick?: (event: React.MouseEvent) => void;
+  onClick?: (
+    event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => void;
   isLink?: boolean;
   ariaLabel?: string;
   path?: string;

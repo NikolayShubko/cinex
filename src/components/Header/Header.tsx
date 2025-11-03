@@ -3,8 +3,11 @@ import s from "./Header.module.scss";
 import Navigation from "../Navigation/Navigation";
 import { mainRoutes } from "../../router/ROUTES";
 import Logo from "./Logo/Logo";
-import { Link } from "react-router";
+
+import Button from "../Button/Button";
+import { useAppSelector } from "../../hooks/reduxHooks";
 const Header = () => {
+  const isLogin = useAppSelector((state) => state.auth.isLogin);
   return (
     <header className={s.header + " " + "container"}>
       <Logo />
@@ -16,7 +19,12 @@ const Header = () => {
         <button>
           <Icon iconName="bell" />
         </button>
-        <Link to={"/login"}>sign in</Link>
+        {!isLogin && (
+          <Button isLink={true} path="/login" size="large">
+            sign in
+          </Button>
+        )}
+        {/* <Link to={"/login"}>sign in</Link> */}
       </div>
     </header>
   );
