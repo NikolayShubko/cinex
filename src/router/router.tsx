@@ -5,169 +5,129 @@ import ContentPage from "../pages/ContentPage/ContentPage";
 import MoviesAndSeriesPage from "../pages/MoviesAndSeries/MoviesAndSeries";
 import LoginLayout from "../pages/Layout/LoginLayout";
 import Login from "../pages/Login/Login";
+import { MovieErrorBoundary } from "../pages/ErrorPage/ErrorPage";
+
+const API_BASE = "https://onlyjar-production.up.railway.app";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    // children: [
-    //   {
-    //     path: "/",
-    //     element: <Home endpoint="/api/v1/films/latest " />,
-    //     children: [
-    //       {
-    //         path: "new",
-    //         element: <Home endpoint="api/v1/films/latest " />,
-    //       },
-    //       {
-    //         path: "most-popular",
-    //         element: <Home endpoint="api/v1/films/" />,
-    //       },
-    //       {
-    //         path: "keep-watching",
-    //         element: <Home endpoint="api/v1/films/" />,
-    //       },
-    //       {
-    //         path: "recommended-for-you",
-    //         element: <Home endpoint="api/v1/films/" />,
-    //       },
-    //       {
-    //         path: "trending-now",
-    //         element: <Home endpoint="api/v1/films/" />,
-    //       },
-    //     ],
-    //   },
-
-    //   {
-    //     path: "/movies",
-    //     element: <MoviesAndSeriesPage endpoint="api/v1/films/onlyFilms" />,
-    //     children: [
-    //       {
-    //         path: "new",
-    //         element: <MoviesAndSeriesPage endpoint="api/v1/films/onlyFilms" />,
-    //       },
-    //       {
-    //         path: "most-popular",
-    //         element: <MoviesAndSeriesPage endpoint="api/v1/films/onlyFilms" />,
-    //       },
-    //       {
-    //         path: "keep-watching",
-    //         element: <MoviesAndSeriesPage endpoint="api/v1/films/onlyFilms" />,
-    //       },
-    //       {
-    //         path: "recommended-for-you",
-    //         element: <MoviesAndSeriesPage endpoint="api/v1/films/onlyFilms" />,
-    //       },
-    //     ],
-    //   },
-    // ],
-
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home endpoint="/api/v1/films/" />,
       },
       {
-        path: "/new",
+        path: "new",
         element: <Home endpoint="/api/v1/films/latest" />,
       },
       {
-        path: "/most-popular",
+        path: "most-popular",
         element: <Home endpoint="/api/v1/films/highestRated" />,
       },
       {
-        path: "/keep-watching",
+        path: "keep-watching",
         element: <Home endpoint="/api/v1/films/" />,
       },
       {
-        path: "/recommended-for-you",
+        path: "trending-now",
         element: <Home endpoint="/api/v1/films/" />,
-      },
-      {
-        path: "/trending-now",
-        element: <Home endpoint="/api/v1/films/" />,
-      },
-      {
-        path: "/movies",
-        element: <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms" />,
       },
 
       {
-        path: "/movies/new",
-        element: (
-          <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms/latest" />
-        ),
+        path: "movies",
+        children: [
+          {
+            index: true,
+            element: <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms" />,
+          },
+          {
+            path: "new",
+            element: (
+              <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms/latest" />
+            ),
+          },
+          {
+            path: "most-popular",
+            element: (
+              <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms/highestRated" />
+            ),
+          },
+          {
+            path: "trending-now",
+            element: <MoviesAndSeriesPage endpoint="/api/v1/films/" />,
+          },
+          {
+            path: ":movieId",
+            element: <ContentPage />,
+            loader: async ({ params }) => {
+              const res = await fetch(
+                `${API_BASE}/api/v1/films/${params.movieId}`
+              );
+              if (!res.ok) throw new Response("", { status: 404 });
+              return res.json();
+            },
+            errorElement: <MovieErrorBoundary />,
+          },
+        ],
       },
       {
-        path: "/movies/most-popular",
-        element: (
-          <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms/highestRated" />
-        ),
+        path: "series",
+        children: [
+          {
+            index: true,
+            element: (
+              <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries" />
+            ),
+          },
+          {
+            path: "new",
+            element: (
+              <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/latest" />
+            ),
+          },
+          {
+            path: "most-popular",
+            element: (
+              <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/highestRated" />
+            ),
+          },
+          {
+            path: "trending-now",
+            element: (
+              <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/highestRated" />
+            ),
+          },
+          {
+            path: ":movieId",
+            element: <ContentPage />,
+            loader: async ({ params }) => {
+              const res = await fetch(
+                `${API_BASE}/api/v1/films/${params.movieId}`
+              );
+              if (!res.ok) throw new Response("", { status: 404 });
+              return res.json();
+            },
+            errorElement: <MovieErrorBoundary />,
+          },
+        ],
       },
       {
-        path: "/movies/keep-watching",
-        element: <MoviesAndSeriesPage endpoint="/api/v1/films/" />,
-      },
-      {
-        path: "/movies/recommended-for-you",
-        element: <MoviesAndSeriesPage endpoint="/api/v1/films/onlyFilms" />,
-      },
-      {
-        path: "/movies/trending-now",
-        element: <MoviesAndSeriesPage endpoint="/api/v1/films/" />,
-      },
-      {
-        path: "/movies/:movieId",
-        element: <ContentPage />,
-      },
-      {
-        path: "/series",
-        element: <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries" />,
-      },
-
-      {
-        path: "/series/new",
-        element: (
-          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/latest" />
-        ),
-      },
-      {
-        path: "/series/most-popular",
-        element: (
-          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/highestRated" />
-        ),
-      },
-      {
-        path: "/series/keep-watching",
-        element: <MoviesAndSeriesPage endpoint="/api/v1/films/" />,
-      },
-      {
-        path: "/series/recommended-for-you",
-        element: (
-          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/mainGenres" />
-        ),
-      },
-      {
-        path: "/series/trending-now",
-        element: (
-          <MoviesAndSeriesPage endpoint="/api/v1/films/onlySeries/highestRated" />
-        ),
-      },
-      {
-        path: "/series/:movieId",
-        element: <ContentPage />,
+        path: "*",
+        element: <div>Not Found Sorry</div>,
       },
     ],
   },
+
   {
     path: "/login",
     element: <LoginLayout />,
     children: [
       {
-        path: "/login",
+        index: true,
         element: <Login />,
       },
     ],
   },
-  { path: "*", element: <div>Not Found Sorry</div> },
 ]);
