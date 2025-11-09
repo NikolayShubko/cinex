@@ -13,9 +13,7 @@ const Navigation: FC<NavigationProps> = ({ links, variant, basePath }) => {
   const location = useLocation();
   const isHomeActive =
     location.pathname === "/" ||
-    location.pathname.startsWith("/recommended-for-you") ||
     location.pathname.startsWith("/trending-now") ||
-    location.pathname.startsWith("/keep-watching") ||
     location.pathname.startsWith("/new") ||
     location.pathname.startsWith("/most-popular");
   return (

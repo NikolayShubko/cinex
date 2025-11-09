@@ -28,14 +28,7 @@ export const categoryRoutes: RouteType[] = [
     name: "Most Popular",
     route: "most-popular",
   },
-  {
-    name: "Keep Watching",
-    route: "keep-watching",
-  },
-  {
-    name: "Recommended For You",
-    route: "recommended-for-you",
-  },
+
   {
     name: "Trending Now",
     route: "trending-now",
