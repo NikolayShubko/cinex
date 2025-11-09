@@ -25,6 +25,7 @@
     width: 312px;
     height: 177px;
     border-radius: 7px;
+    object-fit: fill;
     &:hover {
       border: 2px solid variables.$accent-color;
     }

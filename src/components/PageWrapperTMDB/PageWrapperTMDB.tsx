@@ -1,26 +1,24 @@
 import React, { FC } from "react";
-import Slider from "../Slider/Slider";
 
-import FilmInfo from "../FilmInfo/FilmInfo";
 import Navigation from "../Navigation/Navigation";
 import { categoryRoutes } from "../../router/ROUTES";
-import { useGetContentQuery } from "../../store/api/getContentAPi/getContentApiSlice";
 import { useGetTMDBContentQuery } from "../../store/apiTMDB/api";
+import SliderTMDB from "../Slider/SliderTMDB";
+import FilmInfoTMDB from "../FilmInfo/FilmInfoTMDB";
 
 interface PageWrapperProps {
   basePath: string;
   endpoint: string;
 }
 
-const PageWrapper: FC<PageWrapperProps> = React.memo(
+const PageWrapperTMDB: FC<PageWrapperProps> = React.memo(
   ({ basePath, endpoint }) => {
-    // const { data: films, isLoading, isFetching } = useGetContentQuery(endpoint);
-
     const {
       data: films,
       isLoading,
       isFetching,
     } = useGetTMDBContentQuery(endpoint);
+
     return (
       <>
         <Navigation
@@ -28,9 +26,9 @@ const PageWrapper: FC<PageWrapperProps> = React.memo(
           variant={"secondary"}
           basePath={basePath}
         />
-        <FilmInfo isLoading={isLoading} />
-        <Slider
-          filmData={films === undefined ? [] : films}
+        <FilmInfoTMDB isLoading={isLoading} />
+        <SliderTMDB
+          filmData={films === undefined ? [] : films.results}
           isLoading={isFetching}
         />
       </>
@@ -38,4 +36,4 @@ const PageWrapper: FC<PageWrapperProps> = React.memo(
   }
 );
 
-export default PageWrapper;
+export default PageWrapperTMDB;

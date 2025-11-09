@@ -18,6 +18,7 @@ const Navigation: FC<NavigationProps> = ({ links, variant, basePath }) => {
     location.pathname.startsWith("/keep-watching") ||
     location.pathname.startsWith("/new") ||
     location.pathname.startsWith("/most-popular");
+  console.log(links);
   return (
     <nav className={s.nav}>
       {links.map((link) => {
@@ -25,6 +26,7 @@ const Navigation: FC<NavigationProps> = ({ links, variant, basePath }) => {
           variant === "main"
             ? `${link.route}`
             : `${basePath}/${link.route}`.replace("//", "/");
+        console.log(to);
         return (
           <NavLink
             key={link.name}
