@@ -1,13 +1,7 @@
 import { FC } from "react";
 import { NavLink, useLocation } from "react-router";
 import s from "./Navigation.module.scss";
-import { RouteType } from "../../types/routetype.tsx";
-
-interface NavigationProps {
-  links: RouteType[];
-  variant: "main" | "secondary";
-  basePath: string;
-}
+import { NavigationProps } from "../../types/navigationProps.ts";
 
 const Navigation: FC<NavigationProps> = ({ links, variant, basePath }) => {
   const location = useLocation();

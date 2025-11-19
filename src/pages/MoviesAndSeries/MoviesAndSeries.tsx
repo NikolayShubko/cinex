@@ -1,9 +1,9 @@
 import { FC } from "react";
-import PageWrapper from "../../components/PageWrapper/PageWrapper";
+import { PageWrapper } from "../../components";
+
 type endpoint = { endpoint: string };
 
 const MoviesAndSeriesPage: FC<endpoint> = ({ endpoint }) => {
-  console.log(endpoint);
   return (
     <PageWrapper
       basePath={endpoint.includes("onlySeries") ? "/series" : "/movies"}

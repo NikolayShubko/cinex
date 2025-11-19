@@ -1,44 +1,44 @@
-import LoginScrollBig from "../../components/Slider/LoginScrollBig/LoginScrollBig";
+import { Button, LoginForm } from "../../components";
+import LoginScrollBig from "../../components/Slider/MarqueSlider/MarqueSlider";
 import s from "./Login.module.scss";
-import LoginForm from "../../components/Form/LoginForm/LoginForm";
-import Button from "../../components/Button/Button";
+
 import { Link } from "react-router";
+const topWide = import.meta.glob("/src/assets/LoginFirstScrollBig/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const topWideSlider = Object.values(topWide) as string[];
+const topSmall = import.meta.glob("/src/assets/LoginFirstScrollSmall/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const topSmallSlider = Object.values(topSmall) as string[];
+const botWide = import.meta.glob("/src/assets/LoginSecondScrollBig/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const botWideSlider = Object.values(botWide) as string[];
+const botSmall = import.meta.glob("/src/assets/LoginSecondScrollSmall/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const botSmallSlider = Object.values(botSmall) as string[];
 const Login = () => {
-  const imagesFirstBig = import.meta.glob(
-    "/src/assets/LoginFirstScrollBig/*.png",
-    { eager: true, query: "?url", import: "default" }
-  );
-  const imageFirstBig = Object.values(imagesFirstBig) as string[];
-  const imagesSmall = import.meta.glob(
-    "/src/assets/LoginFirstScrollSmall/*.png",
-    {
-      eager: true,
-      query: "?url",
-      import: "default",
-    }
-  );
-  const imageFirstSmall = Object.values(imagesSmall) as string[];
-  const imagesSecondBig = import.meta.glob(
-    "/src/assets/LoginSecondScrollBig/*.png",
-    { eager: true, query: "?url", import: "default" }
-  );
-  const imageSecondBig = Object.values(imagesSecondBig) as string[];
-  const imagesSecondSmall = import.meta.glob(
-    "/src/assets/LoginSecondScrollSmall/*.png",
-    { eager: true, query: "?url", import: "default" }
-  );
-  const imageSecondSmall = Object.values(imagesSecondSmall) as string[];
   return (
     <>
       <div className={s.gradient}>
         <div className={`${s.marque}`}>
           <div className={s.marque_sliders}>
-            <LoginScrollBig images={imageFirstBig} variant="big" />
-            <LoginScrollBig images={imageFirstSmall} variant="small" />
+            <LoginScrollBig images={topWideSlider} variant="big" />
+            <LoginScrollBig images={topSmallSlider} variant="small" />
           </div>
           <div className={s.marque_sliders}>
-            <LoginScrollBig images={imageSecondBig} variant="big" />
-            <LoginScrollBig images={imageSecondSmall} variant="small" />
+            <LoginScrollBig images={botWideSlider} variant="big" />
+            <LoginScrollBig images={botSmallSlider} variant="small" />
           </div>
         </div>
       </div>

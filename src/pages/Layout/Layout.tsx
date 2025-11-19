@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import Header from "../../components/Header/Header";
-import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
+import { BackgroundImage, Header } from "../../components";
+
 const Layout = () => {
   return (
     <>

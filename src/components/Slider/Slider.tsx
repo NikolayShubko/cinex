@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { setFilm } from "../../store/selectedFilm/slice";
+import { setBackgroundImage, setFilm } from "../../store/selectedFilm/slice";
 import React, { FC, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router";
-import { swiperParams } from "./swiperParams";
+import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -14,16 +13,23 @@ import "swiper/css";
 // @ts-ignore
 import "swiper/css/free-mode";
 import s from "./Slider.module.scss";
-import { Film } from "../../types/films";
-interface SliderProps {
-  filmData: Film[];
-  isLoading: boolean;
-  variant?: "content-page";
-}
+
+import { Film, SliderProps } from "../../types";
+import { SwiperOptions } from "swiper/types";
+import { FreeMode, Pagination } from "swiper/modules";
 
 const Slider: FC<SliderProps> = React.memo(
   ({ filmData, isLoading, variant }) => {
-    const location = useLocation();
+    const swiperParams: SwiperOptions = {
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      modules: [Pagination, FreeMode],
+      freeMode: true,
+      direction: "horizontal",
+      wrapperClass: `${s.slider}`,
+      lazyPreloadPrevNext: 9,
+    };
+
     const selectedFilmId = useAppSelector(
       (state) => state.selectedFilmReducer.currentFilm?.id
     );
@@ -37,15 +43,16 @@ const Slider: FC<SliderProps> = React.memo(
         }
         timeoutRef.current = setTimeout(() => {
           dispatch(setFilm(film));
+          dispatch(setBackgroundImage(film.filmImageUrl));
         }, delay);
       };
     };
-    const handleMouseOver = useDebouncedHover();
-    const emptyArray = Array.from({ length: 7 });
     useEffect(() => {
       if (filmData && variant !== "content-page")
         dispatch(setFilm(filmData[0]));
-    }, [filmData]);
+    }, [filmData, variant, dispatch]);
+    const handleMouseOver = useDebouncedHover();
+    const emptyArray = Array.from({ length: 7 });
     return (
       <div className={`${s.sliderholder}`}>
         {isLoading ? (
@@ -67,7 +74,6 @@ const Slider: FC<SliderProps> = React.memo(
           <Swiper
             {...swiperParams}
             className={s.slider}
-            key={location.pathname}
             freeMode={{ momentumRatio: 0.4 }}
           >
             {filmData?.map((film) => {
@@ -76,7 +82,7 @@ const Slider: FC<SliderProps> = React.memo(
                   className={s.swiperSlide}
                   id={`${film.id}`}
                   onMouseOver={() => {
-                    variant === "content-page" ? null : handleMouseOver(film);
+                    if (variant !== "content-page") handleMouseOver(film);
                   }}
                   key={film.id}
                 >

@@ -1,16 +1,7 @@
 import { FC } from "react";
 import Icon from "../Icon/Icon";
 import s from "./Input.module.scss";
-
-interface InputProps {
-  type: string;
-  id: string;
-  value?: string;
-  label: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  name: string;
-  checked?: boolean;
-}
+import { InputProps } from "../../types";
 
 const Input: FC<InputProps> = ({
   type,

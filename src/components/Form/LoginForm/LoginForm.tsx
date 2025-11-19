@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useLoginMutation } from "../../../store/api/auth/authApiSlice";
-import Button from "../../Button/Button";
-import Input from "../../Input/Input";
 import s from "./LoginForm.module.scss";
 import { Link, useNavigate } from "react-router";
 import { setIsLogin } from "../../../store/api/auth/authSlice";
 import { useAppDispatch } from "../../../hooks/reduxHooks";
+import { Input, Button } from "../../index";
 const LoginForm = () => {
   const [value, setValue] = useState({
     username: "",

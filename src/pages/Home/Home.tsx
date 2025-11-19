@@ -1,5 +1,5 @@
 import { FC } from "react";
-import PageWrapper from "../../components/PageWrapper/PageWrapper";
+import { PageWrapper } from "../../components";
 
 type endpoint = { endpoint: string };
 
