@@ -1,15 +1,9 @@
 import { useParams } from "react-router";
-
-import FilmInfo from "../../components/FilmInfo/FilmInfo";
 import {
   useGetByGenreQuery,
   useGetContentByIdQuery,
 } from "../../store/api/getContentAPi/getContentApiSlice";
-import Button from "../../components/Button/Button";
-import ButtonBlock from "../../components/ButtonBlock/ButtonBlock";
-import Icon from "../../components/Icon/Icon";
-import Slider from "../../components/Slider/Slider";
-import { useMemo, useState } from "react";
+import { Button, ButtonBlock, FilmInfo, Icon, Slider } from "../../components";
 
 const ContentPage = () => {
   const { movieId } = useParams<{ movieId: string }>();
@@ -17,22 +11,15 @@ const ContentPage = () => {
     skip: !movieId,
     refetchOnMountOrArgChange: true,
   });
-  const [value, setValue] = useState({
-    username: "",
-    password: "",
-  });
 
   const genre = data?.genres.split(",");
-  const {
-    data: genreFiltered,
-    isLoading: genreLoading,
-    isFetching,
-  } = useGetByGenreQuery(genre ? genre[0] : "", {
-    skip: !genre,
-    refetchOnMountOrArgChange: true,
-  });
-  if (!genreLoading) console.log(genreFiltered);
-  console.log(isFetching, " is Fetching");
+  const { data: genreFiltered, isFetching } = useGetByGenreQuery(
+    genre ? genre[0] : "",
+    {
+      skip: !genre,
+      refetchOnMountOrArgChange: true,
+    }
+  );
   return (
     <>
       <FilmInfo isLoading={isLoading} content={data}>

@@ -3,18 +3,18 @@ import { useAppSelector } from "../../hooks/reduxHooks";
 import { FC } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Button from "../Button/Button";
+import { Film } from "../../types";
 type props = {
   isLoading: boolean;
-  content?: {};
+  content?: Film;
   children?: React.ReactNode;
 };
 
 const FilmInfo: FC<props> = ({ isLoading, content, children }) => {
-  const film = content
-    ? content
-    : useAppSelector((state) => state.selectedFilmReducer.currentFilm);
-
+  const selectFilm = useAppSelector(
+    (state) => state.selectedFilmReducer.currentFilm
+  );
+  const film = content || selectFilm;
   if (isLoading) {
     return (
       <>

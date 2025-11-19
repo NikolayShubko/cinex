@@ -1,10 +1,6 @@
-import Icon from "../Icon/Icon";
 import s from "./Header.module.scss";
-import Navigation from "../Navigation/Navigation";
 import { mainRoutes } from "../../router/ROUTES";
-import Logo from "./Logo/Logo";
-
-import Button from "../Button/Button";
+import { Button, Logo, Navigation, Icon } from "../index";
 import { useAppSelector } from "../../hooks/reduxHooks";
 const Header = () => {
   const isLogin = useAppSelector((state) => state.auth.isLogin);
@@ -24,7 +20,6 @@ const Header = () => {
             sign in
           </Button>
         )}
-        {/* <Link to={"/login"}>sign in</Link> */}
       </div>
     </header>
   );

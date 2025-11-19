@@ -1,5 +1,5 @@
 import { Film } from "../../../types/films";
-import { setFilm } from "../../selectedFilm/slice";
+import { setBackgroundImage, setFilm } from "../../selectedFilm/slice";
 import { cinexApi } from "../api";
 
 export const contentApiSlice = cinexApi.injectEndpoints({
@@ -10,6 +10,7 @@ export const contentApiSlice = cinexApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled;
           dispatch(setFilm(data?.[0]));
+          dispatch(setBackgroundImage(data?.[0].filmImageUrl));
         } catch (error) {
           console.log(error);
         }
@@ -21,6 +22,7 @@ export const contentApiSlice = cinexApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled;
           dispatch(setFilm(data));
+          dispatch(setBackgroundImage(data.filmImageUrl));
         } catch (error) {
           console.log(error);
         }

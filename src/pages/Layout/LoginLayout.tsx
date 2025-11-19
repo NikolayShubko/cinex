@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import HeaderLogin from "../../components/Header/HeaderLogin/HeaderLogin";
+import { HeaderLogin } from "../../components";
 
 const LoginLayout = () => {
   return (

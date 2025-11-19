@@ -5,13 +5,13 @@ import "swiper/css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import "swiper/css/autoplay";
-import s from "./LoginScrollBig.module.scss";
+import s from "./MarqueSlider.module.scss";
 import { FC } from "react";
 
 import { Autoplay } from "swiper/modules";
 import { SwiperOptions } from "swiper/types";
 type Props = { images: string[]; variant: "small" | "big" };
-const LoginScrollBig: FC<Props> = ({ images, variant }) => {
+const MarqueSlider: FC<Props> = ({ images, variant }) => {
   const swiperParams: SwiperOptions = {
     slidesPerView: "auto",
     spaceBetween: "24",
@@ -41,4 +41,4 @@ const LoginScrollBig: FC<Props> = ({ images, variant }) => {
   );
 };
 
-export default LoginScrollBig;
+export default MarqueSlider;

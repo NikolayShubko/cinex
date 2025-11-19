@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router";
-import Layout from "../pages/Layout/Layout";
-import Home from "../pages/Home/Home";
-import ContentPage from "../pages/ContentPage/ContentPage";
-import MoviesAndSeriesPage from "../pages/MoviesAndSeries/MoviesAndSeries";
-import LoginLayout from "../pages/Layout/LoginLayout";
-import Login from "../pages/Login/Login";
-import { MovieErrorBoundary } from "../pages/ErrorPage/ErrorPage";
+import {
+  Home,
+  Layout,
+  ContentPage,
+  MoviesAndSeriesPage,
+  LoginLayout,
+  Login,
+  MovieErrorBoundary,
+} from "../pages";
 
 const API_BASE = "https://onlyjar-production.up.railway.app";
 
