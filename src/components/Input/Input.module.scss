@@ -1,5 +1,8 @@
 @use "@styles/variables.scss";
 .input {
+  &_error {
+    color: #ff3b30;
+  }
   &_label {
     display: flex;
     flex-direction: column;
@@ -27,6 +30,11 @@
     &:focus {
       border: none;
       outline: none;
+    }
+    &:-webkit-autofill {
+      -webkit-text-fill-color: white !important;
+      font-size: 16px;
+      box-shadow: 0 0 0 1000px #3a3a3a inset !important;
     }
   }
   &_checkbox {

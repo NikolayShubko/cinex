@@ -30,12 +30,12 @@ const Button = ({
     <Component
       to={isLink ? path : "/"}
       className={buttonClassName}
-      onClick={onClick}
+      onClick={!isLink ? onClick : undefined}
       type={type}
       disabled={disabled}
       rel={rel}
       aria-label={ariaLabel}
-      target={target}
+      target={isLink ? target : undefined}
     >
       {children}
     </Component>

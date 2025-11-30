@@ -48,8 +48,10 @@ const Slider: FC<SliderProps> = React.memo(
       };
     };
     useEffect(() => {
-      if (filmData && variant !== "content-page")
+      if (filmData && variant !== "content-page") {
         dispatch(setFilm(filmData[0]));
+        dispatch(setBackgroundImage(filmData[0]?.filmImageUrl));
+      }
     }, [filmData, variant, dispatch]);
     const handleMouseOver = useDebouncedHover();
     const emptyArray = Array.from({ length: 7 });
