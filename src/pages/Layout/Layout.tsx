@@ -1,7 +1,9 @@
 import { Outlet } from "react-router";
 import { BackgroundImage, Header } from "../../components";
+import { useAuthInit } from "../../hooks/useAuthInit";
 
 const Layout = () => {
+  useAuthInit();
   return (
     <>
       <Header />

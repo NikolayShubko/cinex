@@ -1,3 +1,4 @@
+import { LoginFormValues } from "./forms";
 import { PageWrapperProps } from "./pagewrapperProps";
 import { NavigationProps } from "./navigationProps";
 import { InputProps } from "./inputProps";
@@ -14,4 +15,5 @@ export {
   InputProps,
   NavigationProps,
   PageWrapperProps,
+  LoginFormValues,
 };

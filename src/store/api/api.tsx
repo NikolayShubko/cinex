@@ -30,7 +30,7 @@ const baseQueryWithReAuth: BaseQueryFn<
     if (refreshResult?.data) {
       const { accessToken } = refreshResult?.data as { accessToken: string };
       api.dispatch(setToken(accessToken));
-      api.dispatch(setIsLogin());
+      api.dispatch(setIsLogin(true));
       result = await baseQuery(args, api, extraOptions);
     } else {
       api.dispatch(logout());
