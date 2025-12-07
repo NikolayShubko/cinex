@@ -71,7 +71,7 @@ const Login = () => {
         </div>
         <p className={s.signup}>
           New to Cine<span className={s.signup_cinex}>X</span>?
-          <Link className={s.signup_link} to={"/"}>
+          <Link className={s.signup_link} to={"/register"}>
             Sign up now
           </Link>
         </p>

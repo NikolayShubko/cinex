@@ -1,3 +1,4 @@
+import { SignUpFormValues } from "../../../types/forms";
 import { cinexApi } from "../api";
 
 interface LoginResponse {
@@ -27,6 +28,30 @@ export const authApiSlice = cinexApi.injectEndpoints({
         url: "/refresh",
       }),
     }),
+    register: build.mutation<void, SignUpFormValues>({
+      query: ({
+        username,
+        email,
+        password,
+        plan,
+        payMethod,
+        cardInfo,
+        device,
+      }) => ({
+        url: "/register",
+        method: "POST",
+        body: {
+          username: username,
+          email: email,
+          password: password,
+          plan: plan,
+          payMethod: payMethod,
+          cardInfo: cardInfo,
+          device: device,
+        },
+      }),
+    }),
   }),
 });
-export const { useLoginMutation, useLazyRefreshQuery } = authApiSlice;
+export const { useLoginMutation, useLazyRefreshQuery, useRegisterMutation } =
+  authApiSlice;

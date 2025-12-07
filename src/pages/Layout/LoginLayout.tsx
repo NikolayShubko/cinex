@@ -6,9 +6,9 @@ const LoginLayout = () => {
     <>
       <HeaderLogin />
       <main>
-        {/* <div className="container flex-column full-width full-height"> */}
-        <Outlet />
-        {/* </div> */}
+        <div className="container flex-column full-width full-height">
+          <Outlet />
+        </div>
       </main>
     </>
   );
