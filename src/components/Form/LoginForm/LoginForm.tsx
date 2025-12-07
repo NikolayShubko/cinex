@@ -96,7 +96,7 @@ const LoginForm = () => {
       <Button
         size="wide"
         type="submit"
-        variant={isLoading ? "disabled" : undefined}
+        variant={isLoading ? "disabled" : "primary"}
         disabled={isLoading}
       >
         {isLoading ? "Trying to sign in...." : "Sign In"}

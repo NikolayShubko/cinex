@@ -29,7 +29,6 @@ const Slider: FC<SliderProps> = React.memo(
       wrapperClass: `${s.slider}`,
       lazyPreloadPrevNext: 9,
     };
-
     const selectedFilmId = useAppSelector(
       (state) => state.selectedFilmReducer.currentFilm?.id
     );
@@ -48,7 +47,7 @@ const Slider: FC<SliderProps> = React.memo(
       };
     };
     useEffect(() => {
-      if (filmData && variant !== "content-page") {
+      if (filmData.length >= 1 && variant !== "content-page") {
         dispatch(setFilm(filmData[0]));
         dispatch(setBackgroundImage(filmData[0]?.filmImageUrl));
       }

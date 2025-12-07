@@ -47,21 +47,21 @@ const Login = () => {
         <LoginForm />
         <p className={s.login_alternate_header}>OR</p>
         <div className={s.login_alternate_with}>
-          <Button type="button" size="wideWhite" disabled={true}>
+          <Button type="button" size="wide" variant="white" disabled={true}>
             Sign in with Google
             <img
               className={s.login_alternate_with_image}
               src="/images/LoginWithIcons/google.png"
             />
           </Button>
-          <Button type="button" size="wideWhite" disabled={true}>
+          <Button type="button" size="wide" variant="white" disabled={true}>
             Sign in with Apple
             <img
               className={s.login_alternate_with_image}
               src="/images/LoginWithIcons/apple.png"
             />
           </Button>
-          <Button type="button" size="wideWhite" disabled={true}>
+          <Button type="button" size="wide" variant="white" disabled={true}>
             Sign in with Facebook
             <img
               className={s.login_alternate_with_image}
