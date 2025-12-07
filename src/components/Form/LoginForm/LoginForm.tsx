@@ -7,7 +7,6 @@ import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { Input, Button } from "../../index";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { LoginFormValues } from "../../../types";
-
 type ApiError = {
   status: number;
   data: {
@@ -66,6 +65,7 @@ const LoginForm = () => {
         name="username"
         id="username"
         label={"Your e-mail or phone number"}
+        variant="black"
       />
       <Input
         {...register("password", { required: "Password required!" })}
@@ -78,6 +78,7 @@ const LoginForm = () => {
             : undefined
         }
         label={"password"}
+        variant="black"
       />
 
       <Input
@@ -87,6 +88,7 @@ const LoginForm = () => {
         id="rememberMe"
         checked={checked}
         label={"Remember me"}
+        variant="black"
       />
       <Link to={"#"} className={s.resetpass}>
         Forgot your password?

@@ -27,5 +27,15 @@
 
   </symbol>
 
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Check">
+    <path d="M5 12L10 17L20 7" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
+
+
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83 83" id="user">
+    <rect width="83" height="83" rx="41.5" fill="#767676"></rect>
+    <path d="M42 39C44.2091 39 46 37.2091 46 35C46 32.7909 44.2091 31 42 31C39.7909 31 38 32.7909 38 35C38 37.2091 39.7909 39 42 39Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M51 51C51 46.0294 46.9706 42 42 42C37.0294 42 33 46.0294 33 51" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
 
 </svg>

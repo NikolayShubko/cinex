@@ -1,0 +1,89 @@
+@use "@/styles/variables.scss";
+.subscribeplan {
+  display: flex;
+  flex-direction: column;
+  background-color: variables.$white;
+  border-radius: 7px;
+  color: variables.$black;
+  font-size: 20px;
+  position: relative;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  width: 422px;
+  justify-content: space-evenly;
+  &_left {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 170px);
+  }
+  &_center {
+    position: absolute;
+    top: 0;
+    left: 410px;
+    height: 378px;
+    z-index: 10;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
+  }
+  &_right {
+    position: absolute;
+    left: 822px;
+    top: 0;
+    top: calc(50% - 170px);
+  }
+  &_header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  &_price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  &_conslist {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-top: 1px solid variables.$black;
+    border-bottom: 1px solid variables.$black;
+    padding: 12px 0;
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &_conitem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  &_gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 7px 7px 0 0;
+    width: 100%;
+    height: 10px;
+    &_basic {
+      background: linear-gradient(
+        90deg,
+        rgba(47, 51, 124, 1) 0%,
+        rgba(139, 69, 69, 1) 100%
+      );
+    }
+    &_standard {
+      background: linear-gradient(
+        90deg,
+        rgba(51, 111, 120, 1) 0%,
+        rgba(82, 34, 76, 1) 100%
+      );
+    }
+    &_premium {
+      background: linear-gradient(
+        90deg,
+        rgba(244, 255, 85, 1) 0%,
+        rgba(167, 61, 108, 1) 100%
+      );
+    }
+  }
+}

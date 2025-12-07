@@ -8,6 +8,7 @@ import {
   Login,
   MovieErrorBoundary,
 } from "../pages";
+import SignUp from "../pages/SignUp/SignUp";
 
 const API_BASE = "https://onlyjar-production.up.railway.app";
 
@@ -129,6 +130,16 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/register",
+    element: <LoginLayout />,
+    children: [
+      {
+        index: true,
+        element: <SignUp />,
       },
     ],
   },

@@ -7,4 +7,7 @@ export interface InputProps {
   name: string;
   checked?: boolean;
   error?: string;
+  variant?: "white" | "black";
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
+  pattern?: string;
 }
