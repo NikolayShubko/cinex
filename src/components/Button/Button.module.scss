@@ -4,40 +4,36 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border: 2px solid variables.$accent-color;
   text-align: center;
-  background-color: variables.$accent-color;
-  color: white;
   border-radius: 7px;
   text-transform: capitalize;
-  max-height: 48px;
   transition: all ease-in-out 0.3s;
   font-family: variables.$vela-font;
   font-size: 16px;
   font-weight: 600;
   box-sizing: border-box;
-  &_large {
-    width: 150px;
-    padding: 13px 0;
+  &_xs {
+    width: 24px;
+    height: 24px;
   }
   &_small {
     width: 48px;
     //  height: 48px;
     padding: 12px;
   }
-  &_list {
-    background: none;
-  }
-  &:hover {
-    box-shadow: 0 0 25px 0 variables.$accent-color;
+  &_large {
+    width: 150px;
+    padding: 13px 0;
   }
   &_wide {
     width: 100%;
     padding: 12px;
   }
-  &_wideWhite {
-    width: 100%;
-    padding: 12px;
+  &_primary {
+    background-color: variables.$accent-color;
+    color: white;
+  }
+  &_white {
     background-color: variables.$white;
     color: variables.$black;
     border: none;
@@ -45,5 +41,18 @@
   &_disabled {
     background: lightgray;
     border: 1px solid variables.$black;
+  }
+  &_iconOnly {
+    background: none;
+    border: none;
+    &:hover {
+      box-shadow: 0 0 0 0 !important;
+    }
+  }
+  &_list {
+    background: none;
+  }
+  &:hover {
+    box-shadow: 0 0 25px 0 variables.$accent-color;
   }
 }

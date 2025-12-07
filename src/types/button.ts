@@ -1,8 +1,8 @@
 export interface ButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit";
-  size?: "wide" | "large" | "medium" | "small" | "wideWhite";
-  variant?: "list" | "disabled";
+  size?: "wide" | "large" | "medium" | "small" | "xs";
+  variant?: "list" | "disabled" | "white" | "black" | "primary" | "iconOnly";
   disabled?: boolean;
   className?: string;
   onClick?: (

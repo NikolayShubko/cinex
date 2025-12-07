@@ -76,7 +76,7 @@ const SignUpForm = () => {
               variant={
                 watch("email") === "" || watch("password") === ""
                   ? "disabled"
-                  : undefined
+                  : "primary"
               }
               disabled={watch("email") === "" || watch("password") === ""}
             >
@@ -125,12 +125,15 @@ const SignUpForm = () => {
               </p>
               <div className={s.form_paymentmethods}>
                 <Button
-                  size="wideWhite"
+                  size="wide"
+                  variant="white"
                   onClick={() => setValue("payMethod", "creditCard")}
                 >
                   Credit or Debit Card
                 </Button>
-                <Button size="wideWhite">Paypal</Button>
+                <Button size="wide" variant="white">
+                  Paypal
+                </Button>
               </div>
             </div>
             <div hidden={!(watch("payMethod") === "creditCard")}>
@@ -210,7 +213,7 @@ const SignUpForm = () => {
                   variant={
                     Object.values(watch("cardInfo")).some((v) => !v)
                       ? "disabled"
-                      : undefined
+                      : "primary"
                   }
                   disabled={Object.values(watch("cardInfo")).some((v) => !v)}
                 >
@@ -227,7 +230,8 @@ const SignUpForm = () => {
             </h3>
             <div className={s.form_button_devices}>
               <Button
-                size="wideWhite"
+                size="wide"
+                variant="white"
                 onClick={() => {
                   setValue("device", "TV");
                   setStep(5);
@@ -236,7 +240,8 @@ const SignUpForm = () => {
                 TV
               </Button>
               <Button
-                size="wideWhite"
+                size="wide"
+                variant="white"
                 onClick={() => {
                   setValue("device", "Phone");
                   setStep(5);
@@ -245,7 +250,8 @@ const SignUpForm = () => {
                 Phone
               </Button>
               <Button
-                size="wideWhite"
+                size="wide"
+                variant="white"
                 onClick={() => {
                   setValue("device", "Computer");
                   setStep(5);
@@ -254,7 +260,8 @@ const SignUpForm = () => {
                 Computer
               </Button>
               <Button
-                size="wideWhite"
+                size="wide"
+                variant="white"
                 onClick={() => {
                   setValue("device", "Gaming Console");
                   setStep(5);
@@ -289,7 +296,7 @@ const SignUpForm = () => {
                 variant="white"
               />
             </div>
-            <Button type="submit" size="wide">
+            <Button type="submit" size="wide" variant="primary">
               Create Account
             </Button>
           </div>

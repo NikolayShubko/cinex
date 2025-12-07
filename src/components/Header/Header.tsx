@@ -9,14 +9,14 @@ const Header = () => {
       <Logo />
       <Navigation links={mainRoutes} variant={"main"} basePath="/" />
       <div className={s.controls}>
-        <button>
+        <Button variant="iconOnly" size="xs">
           <Icon iconName="search" />
-        </button>
-        <button>
+        </Button>
+        <Button variant="iconOnly" size="xs">
           <Icon iconName="bell" />
-        </button>
+        </Button>
         {!isLogin && (
-          <Button isLink={true} path="/login" size="large">
+          <Button isLink={true} path="/login" variant="primary" size="large">
             sign in
           </Button>
         )}
